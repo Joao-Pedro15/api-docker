@@ -1,4 +1,5 @@
 import 'dotenv/config'
+import './config/module-alias'
 import express from 'express'
 import { Connection, PoolConfig, QueryFunction, createConnection } from 'mysql'
 import { UserMySqlRepository } from './repositories/implementation/UserMySqlRepository'
