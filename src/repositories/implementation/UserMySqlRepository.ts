@@ -1,23 +1,24 @@
 import { User } from "@/entities/User";
 import { UserRepository } from "../UserRepository";
-import { Connection } from 'mysql'
-import { promisedQuery } from '../../infra/promisedQuery'
+import { Pool } from 'mysql2'
 
 export class UserMySqlRepository implements UserRepository {
- private readonly db: Connection
- constructor(db: Connection) {
+ private readonly db: Pool
+ constructor(db: Pool) {
   this.db = db
  }
 
  async find(): Promise<User[]> {
   const query = 'SELECT * FROM users'
-  const user = await promisedQuery(this.db, query) as User[]
+  const result = await this.db.promise().query(query)
+  const user = result[0] as User[]
   return user
  }
 
  async findByEmail(email: string): Promise<User[]> {
   const query = `SELECT * FROM users WHERE email = ${email} LIMIT 1`
-  const user = await promisedQuery(this.db, query) as User[]
+  const result = await this.db.promise().query(query)
+  const user = result[0] as User[]
   return user
  }
 }
