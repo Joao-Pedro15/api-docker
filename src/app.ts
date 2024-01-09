@@ -3,6 +3,7 @@ import './config/module-alias'
 import express from 'express'
 import { makeLoadUserControllerFactory } from './controllers/user/loadAll/LoadUserControllerFactory'
 import { adaptRoute } from './main/route'
+import { makeConsumeMsgControllerFactory } from './controllers/user/consumerMsg/ConsumeMsgControllerFactory'
 
 const app = express()
 
@@ -16,6 +17,8 @@ app.get('/health', (_, res) => { res.send('Hello World!') })
 app.get('/novarota', (_, res) => res.send("opa"))
 
 app.get('/getAll', adaptRoute(makeLoadUserControllerFactory()))
+
+app.get('/consummer', adaptRoute(makeConsumeMsgControllerFactory()))
 
 app.listen(PORT, () => {
  console.log("server running on port: " + PORT)
