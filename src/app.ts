@@ -16,7 +16,7 @@ app.get('/health', (_, res) => { res.send('Hello World!') })
 
 app.get('/novarota', (_, res) => res.send("opa"))
 
-app.get('/getAll', adaptRoute(makeLoadUserControllerFactory()))
+app.get('/getAll', adaptRoute(makeLoadUserControllerFactory(true)))
 
 app.get('/consummer', adaptRoute(makeConsumeMsgControllerFactory()))
 

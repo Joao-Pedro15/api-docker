@@ -3,9 +3,10 @@ import { LoadUserController } from './LoadUserController'
 import { makeUserServiceFactory } from '@/services/user/UserServicesFactory'
 import { RabbitMQ } from '@/infra/rabbitmq'
 
-export const makeLoadUserControllerFactory = (): LoadUserController => {
+
+export const makeLoadUserControllerFactory = (isElastic = false): LoadUserController => {
  return new LoadUserController(
-  makeUserServiceFactory(),
+  makeUserServiceFactory(isElastic),
   new RedisCache(),
   new RabbitMQ()
  )
