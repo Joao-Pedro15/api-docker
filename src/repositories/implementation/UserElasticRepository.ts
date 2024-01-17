@@ -13,7 +13,6 @@ export class UserElasticRepository implements UserRepository {
    index: 'users',
    size: 100
   })
-  console.log(query)
   const users = query?.hits?.hits?.map(item => item?._source) ?? []
   return users as User[]
  }
