@@ -14,8 +14,6 @@ const PORT = process.env.PORT_APP || 3333
 
 app.get('/health', (_, res) => { res.send('Hello World!') })
 
-app.get('/novarota', (_, res) => res.send("opa"))
-
 app.get('/getAll', adaptRoute(makeLoadUserControllerFactory(true)))
 
 app.get('/consummer', adaptRoute(makeConsumeMsgControllerFactory()))
