@@ -2,9 +2,9 @@ import { Channel, Connection, connect, Message, Options, ConsumeMessage } from "
 
 const options: Options.Connect = {
  port: 5672,
- password: 'admin',
- username: 'admin',
- hostname: 'localhost'
+ password: 'root',
+ username: 'root',
+ hostname: 'rabbit'
 }
 
 export class RabbitMQ {

@@ -1,10 +1,10 @@
 import { Pool, createPool } from "mysql2";
 
 const config = {
- host: 'localhost',
+ host: 'db',
  user: 'root',
  password: 'root',
- database: 'mydatabase',
+ database: 'nodedb',
 }
 
 export class Database {

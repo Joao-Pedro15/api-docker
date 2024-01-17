@@ -2,10 +2,8 @@ import Redis, { RedisOptions } from 'ioredis'
 import { promisify } from 'util'
 
 const options: RedisOptions = {
- host: 'localhost',
+ host: 'redis',
  port: 6379,
- username: 'root',
- password: 'root',
 }
 
 export class RedisCache {
@@ -15,7 +13,7 @@ export class RedisCache {
  }
 
  getInstance() {
-  if (!this.instance) return new Redis()
+  if (!this.instance) return new Redis({ ...options })
   return this.instance
  }
 

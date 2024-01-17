@@ -1,7 +1,7 @@
 import { Client, ConfigOptions } from 'elasticsearch'
 
 const options: ConfigOptions = {
- host: 'localhost:9200',
+ host: 'elasticsearch:9200',
 }
 
 export class ElasticSearch {
